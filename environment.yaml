@@ -3,4 +3,6 @@ channels: !!python/tuple
 - defaults
 dependencies:
 - conda-forge::tensorflow=0.10.0=py35_0
+- matplotlib=1.5.3=np111py35_1
+- pillow=3.4.2=py35_0
 prefix: /Users/se7entyse7en/miniconda3/envs/learning-tensorflow
