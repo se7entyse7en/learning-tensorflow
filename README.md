@@ -1,5 +1,8 @@
 # Learning Tensorflow
 
+Exercises from [learningtensorflow.com](http://learningtensorflow.com/).
+
+
 ## Environment
 
 Setup the environment using conda:
