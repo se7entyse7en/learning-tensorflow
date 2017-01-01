@@ -21,8 +21,6 @@ def create_samples(n_clusters, n_samples_per_cluster, n_features,
         # Make the samples normally distributed around the centroid
         samples += centroid
 
-        centroid = tf.Print(centroid, [centroid], message='c = ')
-
         centroids.append(centroid)
         all_samples.append(samples)
 
