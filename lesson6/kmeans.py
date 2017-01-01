@@ -21,6 +21,8 @@ def create_samples(n_clusters, n_samples_per_cluster, n_features,
         # Make the samples normally distributed around the centroid
         samples += centroid
 
+        centroid = tf.Print(centroid, [centroid], message='c = ')
+
         centroids.append(centroid)
         all_samples.append(samples)
 
@@ -30,6 +32,22 @@ def create_samples(n_clusters, n_samples_per_cluster, n_features,
     all_samples = tf.concat(0, all_samples, name='samples')
 
     return centroids, all_samples
+
+
+def choose_random_centroids(samples, n_clusters):
+    samples = tf.Print(samples, [samples], summarize=10, message='samples = ')
+
+    shuffled_samples = tf.random_shuffle(samples, name='shuffled_samples')
+    size = [n_clusters, -1]
+    begin = [0, 0]
+
+    shuffled_samples = tf.Print(shuffled_samples, [shuffled_samples],
+                                summarize=10, message='shuffled = ')
+
+    random_centroids = tf.slice(shuffled_samples, begin, size,
+                                name='random_centroids')
+
+    return random_centroids
 
 
 def plot_clusters(all_samples, centroids, n_samples_per_cluster):
